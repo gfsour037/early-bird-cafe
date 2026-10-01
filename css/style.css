@@ -1,0 +1,1400 @@
+/* ========================================
+   Early Bird Cafe
+   ======================================== */
+
+/* ---------- Base ---------- */
+
+:root {
+  --bg-color: #b7d9e9;
+  --brown: #765037;
+  --brown-dark: #67452f;
+  --beige: #d2b79e;
+  --white: #f7f4f2;
+  --border: #765037;
+  --content-max: 640px;
+  --wide-max: 800px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: clamp(24px, 6vw, 130px);
+  background-color: var(--bg-color);
+
+  color: var(--brown);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ========================================
+   Header
+   ======================================== */
+
+/* ---------- Title ---------- */
+
+.title {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  text-align: center;
+}
+
+.title h1 {
+  margin: 0;
+
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.white-bird-icon {
+  flex: 0 0 auto;
+  width: 65px;
+}
+
+/* ========================================
+   Header Menu Button
+   ======================================== */
+
+.hamburger-button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+  color: var(--brown);
+
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+/* ハンバーガーアイコン */
+
+.hamburger-icon {
+  position: relative;
+
+  display: block;
+
+  width: 40px;
+  height: 30px;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+
+  width: 40px;
+  height: 3px;
+
+  background-color: var(--brown);
+}
+
+.hamburger-icon::before {
+  top: 2px;
+
+  box-shadow: 0 13px 0 var(--brown);
+}
+
+.hamburger-icon::after {
+  top: 28px;
+}
+
+.hamburger-text {
+  line-height: 1;
+}
+
+/* ========================================
+   Catch Copy
+   ======================================== */
+
+.catch-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: clamp(40px, 6vw, 70px);
+
+  text-align: center;
+}
+
+.catch-copy h2 {
+  margin: 0;
+
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  line-height: 1.15;
+  font-weight: 500;
+
+  text-align: center;
+}
+
+.catch-copy-break {
+  display: none;
+}
+
+/* ========================================
+   Explore our menu
+   ======================================== */
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: min(80%, 470px);
+
+  margin-top: 35px;
+}
+
+.menu-line {
+  flex: 1;
+
+  height: 1px;
+
+  background-color: var(--brown);
+}
+
+.brown-bird-icon {
+  flex: 0 0 auto;
+
+  width: 38px;
+  height: auto;
+
+  margin: 0 15px;
+}
+
+.menu-link-text {
+  display: inline-block;
+
+  margin-top: 35px;
+  padding: 15px 100px;
+
+  border-radius: 65px;
+
+  background-color: var(--brown);
+  color: var(--white);
+
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+
+  transition: opacity 0.3s ease;
+}
+
+.menu-link-text:hover {
+  opacity: 0.75;
+}
+
+/* ========================================
+   Menu
+   ======================================== */
+
+#menu {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: clamp(50px, 8vw, 110px);
+}
+
+/* Menu item */
+
+.menu-item {
+  position: relative;
+
+  width: clamp(370px, 40vw, 500px);
+  aspect-ratio: 1 / 1;
+  margin-top: clamp(0px, 3vw, 45px);
+  padding: clamp(30px, 3vw, 40px);
+
+  box-sizing: border-box;
+
+  border-radius: 20px;
+
+  background-color: var(--brown);
+  color: var(--white);
+}
+
+/* 左右交互 */
+
+.menu-item:nth-child(odd) {
+  margin-left: 0;
+}
+
+.menu-item:nth-child(even) {
+  margin-left: auto;
+  margin-right: 0;
+
+  background-color: var(--beige);
+}
+
+/* Menu title */
+
+.menu-item h3 {
+  margin: 0 0 18px;
+
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* 写真エリア */
+
+.menu-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 83%;
+
+  box-sizing: border-box;
+  padding: clamp(10px, 4vw, 20px);
+
+  border: 1px solid var(--white);
+  border-radius: 15px;
+
+  overflow: hidden;
+}
+
+.menu-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+
+  object-fit: contain;
+}
+
+/* ========================================
+   Message
+   ======================================== */
+
+#message {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: clamp(40px, 6vw, 90px);
+  text-align: center;
+}
+
+#message h3 {
+  margin: 0 0 30px;
+
+  font-size: clamp(1.6rem, 5vw, 2.3rem);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+#message p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 130px;
+
+  margin: 0;
+
+  border: 1px solid var(--brown);
+  border-radius: 10px;
+
+  background-color: var(--white);
+
+  font-size: 1.4rem;
+}
+
+/* ========================================
+   Information / Visit us
+   ======================================== */
+
+#information {
+  max-width: 800px;
+
+  margin: 0 auto;
+  padding-top: clamp(40px, 6vw, 90px);
+
+  text-align: center;
+}
+
+#information > h3 {
+  grid-column: 1 / -1;
+
+  font-size: clamp(1.7rem, 5vw, 2.2rem);
+  font-weight: 500;
+}
+
+#information > div {
+  text-align: center;
+}
+
+.stores {
+  display: flex;
+  justify-content: center;
+
+  margin-top: clamp(20px, 3vw, 45px);
+}
+
+.springwood {
+  border-right: 1px solid var(--brown);
+}
+
+.springwood,
+.brownsPlains {
+  flex: 1 1 0;
+}
+
+.springwood h4,
+.brownsPlains h4 {
+  margin: 0 0 10px;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.springwood p,
+.brownsPlains p {
+  margin-bottom: 3px;
+
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.contact-icon {
+  margin-right: 5px;
+
+  color: var(--brown);
+  font-size: 0.85em;
+}
+
+/* ========================================
+   Opening Hours
+   ======================================== */
+
+#opening-hours {
+  display: flex;
+  align-items: center;
+  width: min(100%, 800px);
+
+  margin: clamp(30px, 6vw, 50px) auto;
+  padding: clamp(20px, 4vw, 25px) clamp(20px, 8vw, 64px);
+  box-sizing: border-box;
+
+  background-color: var(--beige);
+  border-radius: 10px;
+}
+
+.opening-title {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: clamp(15px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.opening-title h4 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.hours-content {
+  width: 50%;
+  padding-right: clamp(15px, 4vw, 40px);
+  box-sizing: border-box;
+  border-left: 1px solid var(--brown);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hours-item {
+  text-align: center;
+}
+
+.hours-item p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* ========================================
+   Social
+   ======================================== */
+
+#social {
+  padding-top: clamp(20px, 3vw, 40px);
+
+  text-align: center;
+}
+
+#social > p {
+  font-size: 2rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+
+  gap: 10%;
+  margin-top: clamp(15px, 2vw, 25px);
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  transition: opacity 0.3s ease;
+}
+
+.social-links a:hover {
+  opacity: 0.65;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  background-color: var(--brown);
+  color: var(--white);
+
+  font-size: 0.9rem;
+}
+
+.social-icon i {
+  font-size: 1.85rem;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+footer {
+  padding-top: clamp(20px, 3vw, 40px);
+
+  text-align: center;
+}
+
+#page-top {
+  font-size: 2rem;
+
+  transition: opacity 0.3s ease;
+}
+
+#page-top:hover {
+  opacity: 0.6;
+}
+
+/* ========================================
+Hamburger Menu
+======================================== */
+
+/* ---------- Overlay ---------- */
+
+.hamburger-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 900;
+
+  background-color: rgba(103, 69, 47, 0.35);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+}
+
+/* ---------- Menu Panel ---------- */
+
+.hamburger-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  z-index: 1000;
+
+  width: 85%;
+  max-width: 450px;
+  height: 100vh;
+
+  box-sizing: border-box;
+
+  padding: 35px 35px 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--white);
+  color: var(--brown);
+
+  border-radius: 25px 0 0 25px;
+
+  transform: translateX(100%);
+
+  transition: transform 0.4s ease;
+
+  overflow-y: auto;
+}
+
+/* ---------- Open ---------- */
+
+.hamburger-menu.is-open {
+  transform: translateX(0);
+}
+
+.hamburger-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ---------- Header ---------- */
+
+.hamburger-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid var(--brown);
+}
+
+.hamburger-menu-title {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+}
+
+.hamburger-menu-bird {
+  width: 28px;
+  height: auto;
+}
+
+/* ---------- Close Button ---------- */
+
+.hamburger-menu-close {
+  width: 40px;
+  height: 40px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+  color: var(--brown);
+
+  font-family: Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+/* ---------- Content ---------- */
+
+.hamburger-menu-content {
+  flex: 1;
+
+  padding-top: 30px;
+}
+
+.hamburger-menu-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.hamburger-menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 5px;
+
+  font-size: 1.15rem;
+
+  transition:
+    padding 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.hamburger-menu-link:first-child {
+  border-top: 0;
+}
+
+.hamburger-menu-link span:last-child {
+  font-family: Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.hamburger-menu-link:hover {
+  padding: 15px 5%;
+  color: var(--white);
+  background-color: var(--brown);
+  border-radius: 50px;
+}
+
+/* ---------- Divider ---------- */
+
+.hamburger-menu-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 30px 0;
+
+  background-color: var(--brown);
+}
+
+/* ---------- Social ---------- */
+
+.hamburger-social {
+  text-align: center;
+}
+
+.hamburger-social p {
+  margin: 0 0 15px;
+
+  font-size: 0.8rem;
+}
+
+.hamburger-social-links {
+  display: flex;
+  justify-content: center;
+
+  gap: 25px;
+  color: var(--brown);
+}
+
+.hamburger-social-links a {
+  font-size: 0.85rem;
+  transition: opacity 0.25s ease;
+  padding: 10px;
+}
+
+.hamburger-social-links a:hover {
+  color: var(--white);
+  background-color: var(--brown);
+  border-radius: 50px;
+}
+
+.hamburger-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+
+.hamburger-social-icon i {
+  font-size: 1.2rem;
+}
+
+/* ========================================
+   Hamburger Icon - Open State
+   ======================================== */
+
+.hamburger-button.is-open .hamburger-icon::before {
+  top: 14px;
+
+  transform: rotate(45deg);
+
+  box-shadow: none;
+}
+
+.hamburger-button.is-open .hamburger-icon::after {
+  top: 14px;
+
+  transform: rotate(-45deg);
+}
+
+.hamburger-button.is-open .hamburger-text {
+  font-size: 0;
+}
+
+.hamburger-button.is-open .hamburger-text::after {
+  content: "Close";
+
+  font-size: 0.8rem;
+}
+
+/* ========================================
+   Menu Modal
+   ======================================== */
+
+.menu-item {
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 12px 25px rgba(103, 69, 47, 0.15);
+}
+
+.menu-item:focus {
+  outline: 2px solid var(--brown);
+  outline-offset: 5px;
+}
+
+/* ---------- スクロールイン(PCのみ) ---------- */
+
+@media (min-width: 431px) and (prefers-reduced-motion: no-preference) {
+  .menu-item {
+    opacity: 0;
+  }
+
+  .menu-item:nth-child(odd) {
+    transform: translateY(80px);
+  }
+
+  .menu-item:nth-child(even) {
+    transform: translateY(80px);
+  }
+
+  .menu-item:nth-child(odd).is-visible,
+  .menu-item:nth-child(even).is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Modal background ---------- */
+
+.menu-modal {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.menu-modal.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ---------- Dark overlay ---------- */
+
+.menu-modal-overlay {
+  position: absolute;
+  inset: 0;
+
+  background-color: rgba(52, 38, 28, 0.65);
+
+  backdrop-filter: blur(3px);
+}
+
+/* ---------- Modal content ---------- */
+
+.menu-modal-content {
+  position: relative;
+
+  z-index: 1;
+
+  width: min(90vw, 520px);
+  max-height: 90vh;
+
+  padding: 35px 40px 40px;
+
+  box-sizing: border-box;
+
+  overflow-y: auto;
+
+  border-radius: 20px;
+
+  background-color: var(--white);
+
+  color: var(--brown);
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+  transform: translateY(20px) scale(0.97);
+
+  transition: transform 0.3s ease;
+}
+
+.menu-modal.is-open .menu-modal-content {
+  transform: translateY(0) scale(1);
+}
+
+/* ---------- Close button ---------- */
+
+.menu-modal-close {
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  width: 35px;
+  height: 35px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.menu-modal-close span {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 22px;
+  height: 1.5px;
+
+  background-color: var(--brown);
+}
+
+.menu-modal-close span:first-child {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.menu-modal-close span:last-child {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.menu-modal-close:hover {
+  opacity: 0.6;
+}
+
+/* ---------- Modal header ---------- */
+
+.modal-header {
+  text-align: center;
+
+  padding: 5px 35px 20px;
+}
+
+.modal-header h2 {
+  margin: 0;
+
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+/* ---------- Decoration ---------- */
+
+.modal-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 10px;
+}
+
+.modal-decoration span {
+  width: 55px;
+  height: 1px;
+
+  background-color: var(--brown);
+}
+
+/* ---------- Main image ---------- */
+
+.modal-image {
+  width: 100%;
+  height: 210px;
+
+  margin-bottom: 25px;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+}
+
+.modal-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+/* ---------- Menu list ---------- */
+
+.modal-menu-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Menu item ---------- */
+
+.modal-menu-item {
+  display: grid;
+
+  grid-template-columns: 1fr auto;
+
+  gap: 10px;
+
+  padding: 15px 5px;
+
+  border-bottom: 1px solid rgba(118, 80, 55, 0.25);
+}
+
+.modal-menu-item:first-child {
+  padding-top: 5px;
+}
+
+.modal-menu-item:last-child {
+  border-bottom: none;
+}
+
+/* ---------- Menu name ---------- */
+
+.modal-menu-name {
+  margin: 0;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* ---------- Menu description ---------- */
+
+.modal-menu-description {
+  margin: 3px 0 0;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 0.78rem;
+
+  line-height: 1.4;
+
+  color: var(--brown-dark);
+
+  opacity: 0.8;
+}
+
+/* ---------- Price ---------- */
+
+.modal-menu-prices {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  padding-top: 2px;
+}
+
+.modal-size-price {
+  /* display: flex;
+  flex-direction: column; */
+  align-items: center;
+
+  min-width: 38px;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.modal-size {
+  margin-bottom: 2px;
+
+  font-size: 0.95rem;
+  font-weight: 400;
+
+  /* opacity: 0.7; */
+}
+
+/* ========================================
+   Mobile
+   ======================================== */
+
+@media (max-width: 430px) {
+  /* Base */
+
+  body {
+    width: auto;
+    margin: clamp(25px, 8vw, 40px) clamp(20px, 7vw, 30px);
+  }
+
+  /* Header */
+
+  .title {
+    gap: clamp(4px, 1.5vw, 8px);
+  }
+
+  .title h1 {
+    font-size: clamp(1.35rem, 6vw, 1.5rem);
+  }
+
+  .white-bird-icon {
+    width: clamp(42px, 13vw, 50px);
+  }
+
+  /* Header Menu Button */
+
+  .hamburger-icon {
+    width: clamp(26px, 8vw, 29px);
+    height: 20px;
+  }
+
+  .hamburger-icon::before,
+  .hamburger-icon::after {
+    width: clamp(26px, 8vw, 29px);
+    height: 2px;
+  }
+
+  .hamburger-icon::before {
+    box-shadow: 0 8px 0 var(--brown);
+  }
+
+  .hamburger-icon::after {
+    top: 18px;
+  }
+
+  .hamburger-text {
+    font-size: clamp(0.55rem, 2.5vw, 0.6rem);
+  }
+
+  /* Catch Copy */
+
+  .catch-copy h2 {
+    font-size: clamp(0.9rem, 4vw, 1rem);
+  }
+
+  .catch-copy-break {
+    display: block;
+  }
+
+  /* Explore our menu */
+
+  .menu-link {
+    width: min(60%, 360px);
+    margin-top: clamp(12px, 4vw, 15px);
+  }
+
+  .brown-bird-icon {
+    width: clamp(22px, 7vw, 25px);
+  }
+
+  .menu-link-text {
+    margin-top: clamp(12px, 4vw, 15px);
+    padding: clamp(7px, 2vw, 8px) clamp(25px, 8vw, 30px);
+    font-size: clamp(0.65rem, 2.8vw, 0.7rem);
+  }
+
+  /* Menu */
+
+  #menu {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 0;
+  }
+
+  /* Menu item */
+
+  .menu-item {
+    width: min(100%, 430px);
+    aspect-ratio: 1 / 1;
+    padding: clamp(20px, 7vw, 30px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-item:nth-child(odd),
+  .menu-item:nth-child(even) {
+    margin-top: clamp(25px, 8vw, 45px);
+  }
+
+  /* Menu title */
+
+  .menu-item h3 {
+    font-size: clamp(1.1rem, 5vw, 1.3rem);
+
+    text-align: center;
+  }
+
+  /* Message */
+
+  #message {
+    max-width: 640px;
+    padding-top: clamp(40px, 12vw, 50px);
+  }
+
+  #message h3 {
+    font-size: clamp(0.9rem, 4vw, 1rem);
+  }
+
+  /* Information */
+
+  #information {
+    max-width: 640px;
+
+    margin: 0 auto;
+    padding-top: clamp(40px, 12vw, 50px);
+  }
+
+  #information h3 {
+    font-size: clamp(0.9rem, 4vw, 1rem);
+  }
+
+  .stores {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .springwood {
+    position: relative;
+
+    border-right: none;
+
+    padding-bottom: clamp(18px, 6vw, 22px);
+    margin-bottom: clamp(18px, 6vw, 22px);
+  }
+
+  .springwood::after {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+
+    width: 60%;
+    height: 1px;
+
+    background-color: var(--brown);
+    transform: translateX(-50%);
+  }
+
+  .springwood,
+  .brownsPlains {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .springwood h4,
+  .brownsPlains h4 {
+    font-size: clamp(0.9rem, 4vw, 1rem);
+  }
+
+  .springwood p,
+  .brownsPlains p {
+    font-size: clamp(0.65rem, 2.8vw, 0.7rem);
+  }
+
+  /* Opening Hours */
+
+  #opening-hours {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .opening-title {
+    position: relative;
+    width: 100%;
+    padding-right: 0;
+    padding-bottom: clamp(10px, 4vw, 14px);
+  }
+
+  .opening-title::after {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+
+    width: 60%;
+    height: 1px;
+
+    background-color: var(--brown);
+    transform: translateX(-50%);
+  }
+
+  .opening-title h4 {
+    font-size: clamp(0.9rem, 4vw, 1rem);
+  }
+
+  .hours-content {
+    width: 100%;
+    padding-left: 0;
+    padding-top: clamp(10px, 4vw, 14px);
+
+    border-left: none;
+    align-items: center;
+  }
+
+  .hours-item p {
+    font-size: clamp(0.65rem, 2.8vw, 0.7rem);
+  }
+
+  /* Social */
+
+  #social {
+    padding-top: 0;
+  }
+
+  #social > p {
+    font-size: clamp(0.9rem, 4vw, 1rem);
+  }
+
+  .social-links a {
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+  }
+
+  .social-icon {
+    width: clamp(18px, 6vw, 20px);
+    height: clamp(18px, 6vw, 20px);
+
+    font-size: 0.7rem;
+  }
+
+  .social-icon i {
+    font-size: clamp(0.75rem, 3vw, 0.82rem);
+  }
+
+  /* Footer */
+
+  #page-top {
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+  }
+
+  /* ========================================
+Hamburger Menu - Mobile
+======================================== */
+
+  .hamburger-menu {
+    width: 85%;
+    padding: 25px 25px 25px;
+    border-radius: 20px 0 0 20px;
+  }
+
+  .hamburger-menu-title {
+    font-size: 1.1rem;
+  }
+
+  .hamburger-menu-bird {
+    width: 23px;
+  }
+
+  .hamburger-menu-link {
+    padding: 14px 3px;
+    font-size: 1rem;
+  }
+
+  .hamburger-menu-link span:last-child {
+    font-size: 1.3rem;
+  }
+
+  .hamburger-menu-divider {
+    margin: 25px 0;
+  }
+
+  /* ========================================
+   Modal Mobile
+   ======================================== */
+
+  .menu-modal {
+    padding: 20px;
+  }
+
+  .menu-modal-content {
+    width: 100%;
+    max-height: 88vh;
+
+    padding: 30px 25px 30px;
+
+    border-radius: 15px;
+  }
+
+  .modal-header {
+    padding-bottom: 15px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .modal-decoration span {
+    width: 40px;
+  }
+
+  .modal-image {
+    height: 160px;
+
+    margin-bottom: 15px;
+  }
+
+  .modal-menu-item {
+    padding: 12px 3px;
+  }
+
+  .modal-menu-name {
+    font-size: 0.9rem;
+  }
+
+  .modal-menu-description {
+    font-size: 0.7rem;
+  }
+
+  .modal-menu-price {
+    font-size: 0.8rem;
+  }
+}
